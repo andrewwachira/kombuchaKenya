@@ -25,7 +25,8 @@ import parse from 'html-react-parser';
   )
 }
 
-export const getStaticProps = async (context)=>{
+
+export const getServerSideProps = async (context)=>{
   const res = await fetch(`http://localhost:4000/api/blogs/${context.params.blogId}`)
   const blogpost = await res.json();
   
@@ -33,17 +34,24 @@ export const getStaticProps = async (context)=>{
     props : {blogpost}
   }
 }
+// export const getStaticProps = async (context)=>{
+//   const res = await fetch(`http://localhost:4000/api/blogs/${context.params.blogId}`)
+//   const blogpost = await res.json();
+  
+//   return {
+//     props : {blogpost}
+//   }
+// }
+// export const getStaticPaths = async()=>{
+//   const res = await fetch(`http://localhost:4000/api/blogs`)
+//   const blogs = await res.json();
 
-export const getStaticPaths = async()=>{
-  const res = await fetch(`http://localhost:4000/api/blogs`)
-  const blogs = await res.json();
+//   const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
 
-  const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
-
-  return {
-    paths,
-    fallback : false
-  }
-}
+//   return {
+//     paths,
+//     fallback : false
+//   }
+// }
 
 export default Blog;
