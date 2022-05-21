@@ -9,8 +9,8 @@ import {
 import { server } from "../config/index.js";
 
 
-export async function getStaticProps(){
-	const res = await fetch(`${server}/api/products`,{headers:{"Content-Type":"application/json"}});
+export async function getServerSideProps(){
+	const res = await fetch(`${server}/api/products`);
 	const products =  await res.json();
 	return {
 		props : {
