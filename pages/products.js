@@ -7,7 +7,7 @@ import {
   faChevronDown
 } from "@fortawesome/free-solid-svg-icons";
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
 	const res = await fetch("https://www.kombuchakenya.co.ke/api/products");
 	const products =  await res.json();
 	return {
