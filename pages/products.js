@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export async function getStaticProps(){
-	const res = await fetch("www.kombuchakenya.co.ke/api/products");
+	const res = await fetch("https://www.kombuchakenya.co.ke/api/products");
 	const products =  await res.json();
 	return {
 		props : {
