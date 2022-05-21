@@ -27,7 +27,7 @@ import parse from 'html-react-parser';
 
 
 export const getServerSideProps = async (context)=>{
-  const res = await fetch(`www.kombuchakenya/api/blogs/${context.params.blogId}`)
+  const res = await fetch(`https://www.kombuchakenya/api/blogs/${context.params.blogId}`)
   const blogpost = await res.json();
   
   return {
