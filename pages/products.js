@@ -10,7 +10,10 @@ import { server } from "../config/index.js";
 
 
 export async function getStaticProps(){
-	const res = await fetch(`${server}/api/products`);
+	const res = await fetch(`${server}/api/products`,{
+		headers: {
+		  'User-Agent': 'ANYTHING_WILL_WORK_HERE'
+		}});
 	const products =  await res.json();
 	return {
 		props : {
