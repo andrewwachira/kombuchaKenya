@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown
 } from "@fortawesome/free-solid-svg-icons";
-
 import { server } from "../config/index.js";
 
-export async function getStaticProps(){
+
+export async function getServerSideProps(){
 	const res = await fetch(`${server}/api/products`);
 	const products =  await res.json();
 	return {
