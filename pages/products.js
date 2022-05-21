@@ -7,8 +7,10 @@ import {
   faChevronDown
 } from "@fortawesome/free-solid-svg-icons";
 
-export async function getServerSideProps(){
-	const res = await fetch("http:127.0.0.1:4000/api/products");
+import { server } from "../config/index.js";
+
+export async function getStaticProps(){
+	const res = await fetch(`${server}/api/products`);
 	const products =  await res.json();
 	return {
 		props : {

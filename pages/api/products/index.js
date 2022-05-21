@@ -31,7 +31,6 @@ export default async function getProducts(req,res){
                 }
             }
         )
-        const all = await prisma.products.findMany();
        
 
         res.status(200).json([herbalTeas,dairyKefir,nonDairyKefir,fruitInfused])
