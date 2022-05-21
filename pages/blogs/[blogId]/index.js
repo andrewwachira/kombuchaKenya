@@ -27,7 +27,10 @@ import { server } from '../../../config';
 }
 
 export const getStaticProps = async (context)=>{
-  const res = await fetch(`${server}/api/blogs/${context.params.blogId}`)
+  const res = await fetch(`${server}/api/blogs/${context.params.blogId}`,{
+    headers: {
+      'User-Agent': 'ANYTHING_WILL_WORK_HERE'
+    }})
   const blogpost = await res.json();
   
   return {
