@@ -9,7 +9,7 @@ export default async function singleBlog(req,res){
                 blog_id : parseInt(blogId)
             }
         });
-        res.status(200).send(blogpost);
+        res.status(200).json(blogpost);
     } catch (error) {
         res.status(404).json(error.message);
     }        
