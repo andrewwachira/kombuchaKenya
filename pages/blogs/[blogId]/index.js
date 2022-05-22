@@ -26,39 +26,39 @@ import { server } from '../../../config';
   )
 }
 
-export const getServerSideProps = async (context)=>{
-    const res = await fetch(`${server}/api/blogs/${context.params.blogId}`,{
-      headers: {
-        'Content-Type': 'application/json'
-      }})
-    const blogpost = await res.json();
+// export const getServerSideProps = async (context)=>{
+//     const res = await fetch(`${server}/api/blogs/${context.params.blogId}`,{
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }})
+//     const blogpost = await res.json();
     
-    return {
-      props : {blogpost}
-    }
-  }
+//     return {
+//       props : {blogpost}
+//     }
+//   }
 
-// export const getStaticProps = async (context)=>{
-//   const res = await fetch(`${server}/api/blogs/${context.params.blogId}`,{
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }})
-//   const blogpost = await res.json();
+export const getStaticProps = async (context)=>{
+  const res = await fetch(`${server}/api/blogs/${context.params.blogId}`,{
+    headers: {
+      'Content-Type': 'application/json'
+    }})
+  const blogpost = await res.json();
   
-//   return {
-//     props : {blogpost}
-//   }
-// }
-// export const getStaticPaths = async()=>{
-//   const res = await fetch(`${server}/api/blogs`)
-//   const blogs = await res.json();
+  return {
+    props : {blogpost}
+  }
+}
+export const getStaticPaths = async()=>{
+  const res = await fetch(`${server}/api/blogs`)
+  const blogs = await res.json();
 
-//   const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
+  const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
 
-//   return {
-//     paths,
-//     fallback : false
-//   }
-// }
+  return {
+    paths,
+    fallback : false
+  }
+}
 
 export default Blog;

@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 export default async function getProducts(req,res){
    try{
@@ -33,7 +33,7 @@ export default async function getProducts(req,res){
         )
        
 
-        res.status(200).json([herbalTeas,dairyKefir,nonDairyKefir,fruitInfused])
+        res.status(200).send([herbalTeas,dairyKefir,nonDairyKefir,fruitInfused])
     }catch(e){
 
         res.status(404).json(e.statusText);
