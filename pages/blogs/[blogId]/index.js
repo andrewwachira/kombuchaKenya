@@ -12,7 +12,7 @@ import { server } from '../../../config';
   <>
     <div className={`r${blogId}-content`}>
       <div className="banner">
-      <Image src = {require(`../../../public${blogpost.blog_image}`)}/>
+      <Image src = {require(`../../../public${blogpost.blog_image}`)}  />
       </div>
       <div className="modal-content">
           <h4 className="font-style-4-h4">{blogpost.blog_title}</h4>
