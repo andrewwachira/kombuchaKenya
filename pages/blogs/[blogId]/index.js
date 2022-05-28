@@ -39,26 +39,38 @@ import { server } from '../../../config';
 //   }
 
 export const getStaticProps = async (context)=>{
-  const res = await fetch(`${server}/api/blogs/${context.params.blogId}`,{
-    headers: {
-      'Content-Type': 'application/json'
-    }})
-  const blogpost = await res.json();
-  
-  return {
-    props : {blogpost}
+
+  try {
+    const res = await fetch(`${server}/api/blogs/${context.params.blogId}`,{
+      headers: {
+        'Content-Type': 'application/json'
+      }})
+    const blogpost = await res.json();
+    
+    return {
+      props : {blogpost}
+    }
+  } catch (error) {
+    console.error(error.message);
   }
+
 }
 export const getStaticPaths = async()=>{
-  const res = await fetch(`${server}/api/blogs`)
-  const blogs = await res.json();
 
-  const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
-
-  return {
-    paths,
-    fallback : false
+  try {
+    const res = await fetch(`${server}/api/blogs`)
+    const blogs = await res.json();
+  
+    const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
+  
+    return {
+      paths,
+      fallback : false
+    }
+  } catch (error) {
+    console.error(error.message);
   }
+ 
 }
 
 export default Blog;

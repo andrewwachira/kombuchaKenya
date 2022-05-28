@@ -9,19 +9,24 @@ import {
 import { server } from "../config/index.js";
 
 
-export async function getStaticProps(){
-	const res = await fetch(`${server}/api/products`);
-	const products = await res.json();
-	
-	return {
-		props : {
-			products
+export async function getServerSideProps(){
+	try{
+		const res = await fetch(`${server}/api/products`);
+		const products = await res.json();
+
+		return {
+			props : {
+				products
+			}
 		}
+	}catch(e){
+		console.error(e.message);
 	}
+
 }
 
 export default function  Products({products}) {
-	console.log(products)
+	
 		const allKombuchaVarieties = [...products[0],...products[3]];
 		const herbalVarieties = products[0];
 		const fruitVarieties = products[3];
