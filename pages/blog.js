@@ -1,8 +1,5 @@
 import Link from "next/link"
 
-// export async function getStaticProps(){
-//     const res = await fetch("http://localhost:5000/")
-// }
 export default function Blog() {
     
 

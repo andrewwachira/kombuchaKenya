@@ -17,10 +17,7 @@ export default function Contacts(){
 
 				<div className="instagram">
 					<h1>Follow us on instagram</h1>
-				<div className="tagembed-container" style={{width:"100%",height:"100%",overflow: "auto"}}>
-					<div className="tagembed-socialwall" data-wall-id="40556" view-url="https://widget.tagembed.com/40556?view"></div>
-					 <Script src="//widget.tagembed.com/embed.min.js" type="text/javascript"></Script>
-				</div>
+					<ElfsightWidget widgetID='2d339f03-8644-4a10-b06c-b55633bd309d'></ElfsightWidget>
 					<style jsx >
 						{
 							`.instagram {
@@ -59,15 +56,7 @@ export default function Contacts(){
 									
 									<div id="whatsappChatWidgetBrandSubTitlePreview" style={{fontSize: "13px", lineHeight: "18px", marginTop: "4px"}}>Replies within 1 day</div>
 								</div>
-								<div style={{cursor: "pointer", position: "absolute", right: "20px", top: "20px"}}>
-									
-									<img src="https://cdn.shopify.com/s/files/1/0070/3666/5911/files/Vector.png?574" style={{display: "table-row"}} alt="Vector" className="lazyloaded" data-ll-status="loaded"/>
-									
-									<img src="https://cdn.shopify.com/s/files/1/0070/3666/5911/files/Vector.png?574" data-src="https://cdn.shopify.com/s/files/1/0070/3666/5911/files/Vector.png?574" style={{display: "table-row"}} alt="Vector" className="lazyloaded  lazy-loaded" data-ll-status="loaded"/>
-									
-									<img src="https://cdn.shopify.com/s/files/1/0070/3666/5911/files/Vector.png?574" style={{display: "table-row"}} alt="Vector"/>
-									
-								</div>
+							
 							</div>
 							<div style={{background: "url(https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png)"}}>
 								<div  style={{backgroundColor: "white", display: "inline-block", margin: "20px", padding: "10px" , borderRadius: "10px"}}>
