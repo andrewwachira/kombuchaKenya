@@ -4,11 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import ProductsCarousel from "../components/ProductsCarousel.js";
 import {server} from "../config/index";
-import axios from 'axios';
-import {parse as flattedParse} from "flatted";
 
-export async function getServerSideProps(){
-	const res = await fetch(`${server}/api/products`);
+
+export async function getStaticProps(){
+	const res = await fetch(`${server}/api/allProducts`);
 	
 	return {
 		props : {

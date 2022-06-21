@@ -5,23 +5,23 @@ import Image from 'next/image';
 import parse from 'html-react-parser';
 import { server } from '../../../config';
 
-export const getServerSideProps = async (context)=>{
+export const getStaticProps = async (context)=>{
     const {data} = await axios.get(`${server}/api/blogs/${context.params.blogId}`)
     return {
       props : {blogpost: data}
     }
 }
 
-// export const getStaticPaths = async()=>{
-//     const {data} = await axios.get(`${server}/api/blogs`)
-//     const blogs = data;
-//     const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
-//     return {
-//       paths,
-//       fallback : false
-//     }
+export const getStaticPaths = async()=>{
+    const {data} = await axios.get(`${server}/api/blogs`)
+    const blogs = data;
+    const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
+    return {
+      paths,
+      fallback : false
+    }
 
-// }
+}
 
 
 const Blog = ({blogpost}) => {

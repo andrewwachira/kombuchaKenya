@@ -15,10 +15,10 @@ model blogs {
 }
 
 model products {
-  productid        String  @id @db.Uuid
+  productid        Int     @id @default(1)
   flavor_name      String? @db.VarChar(255)
   flavor_type      String? @db.VarChar(255)
   product_category String? @db.VarChar(255)
-  product_image    String?
-  product_read     String?
+  product_image    String? @db.VarChar(255)
+  product_read     String? @db.VarChar(255)
 }
