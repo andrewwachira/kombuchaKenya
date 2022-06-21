@@ -4,19 +4,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import ProductsCarousel from "../components/ProductsCarousel.js";
 import {server} from "../config/index";
-
+import axios from "axios";
 
 export async function getStaticProps(){
-	const res = await fetch(`${server}/api/allProducts`);
-	
+	const {data} = await axios.get(`${server}/api/products`);
+
 	return {
 		props : {
-				products : await res.json()
+				products : data
 		}
 	}
 } 
 
 export default function  Products({products}) {
+	console.log(products)
 		const allKombuchaVarieties = [...products[0],...products[3]];
 		const herbalVarieties = products[0];
 		const fruitVarieties = products[3];
