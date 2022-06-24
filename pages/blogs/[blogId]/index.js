@@ -1,20 +1,18 @@
 import {useRouter} from 'next/router';
-import axios from 'axios';
-
 import Image from 'next/image';
 import parse from 'html-react-parser';
 import { server } from '../../../config';
 
 export const getStaticProps = async (context)=>{
-    const {data} = await axios.get(`${server}/api/blogs/${context.params.blogId}`)
+    const res = await fetch(`${server}/api/blogs/${context.params.blogId}`)
     return {
-      props : {blogpost: data}
+      props : {blogpost: await res.json()}
     }
 }
 
 export const getStaticPaths = async()=>{
-    const {data} = await axios.get(`${server}/api/blogs`)
-    const blogs = data;
+    const res = await fetch(`${server}/api/blogs`)
+    const blogs = await res.json();
     const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
     return {
       paths,
