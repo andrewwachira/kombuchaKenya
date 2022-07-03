@@ -15,7 +15,7 @@ model blogs {
 }
 
 model products {
-  productid        Int     @id @default(1)
+  productid        Int     @id @default(autoincrement())
   flavor_name      String? @db.VarChar(255)
   flavor_type      String? @db.VarChar(255)
   product_category String? @db.VarChar(255)

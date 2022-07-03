@@ -32,7 +32,6 @@ export default async function getProducts(req,res){
             }
         )
        
-
         res.status(200).json([herbalTeas,dairyKefir,nonDairyKefir,fruitInfused])
     }catch(e){
 
