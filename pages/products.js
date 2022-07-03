@@ -7,18 +7,23 @@ import {server} from "../config/index";
 
 
 export async function getStaticProps(){
-	const res = await fetch(`${server}/api/products`,{
-		headers: {
-		  Accept: 'application/json, text/plain, */*',
-		  'User-Agent': '*',
-		},
-	  });
-	const products = await res.json();
-	return {
-		props : {
-				products 
+	try{
+		const res = await fetch(`${server}/api/products`,{
+			headers: {
+			  Accept: 'application/json, text/plain, */*',
+			  'User-Agent': '*',
+			},
+		  });
+		const products = await res.json();
+		return {
+			props : {
+					products 
+			}
 		}
+	}catch(e){
+		console.error(e.message)
 	}
+	
 } 
 
 export default function  Products({products}) {
