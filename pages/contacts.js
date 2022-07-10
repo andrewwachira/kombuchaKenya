@@ -6,6 +6,11 @@ export default function Contacts(){
 
 	const [elfLinkfb,setElfLinkfb] = useState("");
 	const [elfLinktw,setElfLinktw] =useState("")
+	const screenWidth = window.innerWidth;
+	const whatsappWidthValue = screenWidth > 500 ? 600 : 250
+
+	console.log(whatsappWidthValue)
+
 
 	return(
 		<>
@@ -46,11 +51,27 @@ export default function Contacts(){
 			   <div className='whatsapp' style={{height:"fit-content"}}>
 				   <h1>Chat with us on whatsapp</h1>
 					<div className="whatsappchat-settings-component" id="whatsappChatWidgetPreview" style={{justifyContent: "center"}}>
-						<div style={{display: "block", backgroundColor: "white", width: "600px", height:"inherit", borderRadius: "10px", boxShadow: "rgba(0, 0, 0, 0.4) 2px 2px 6px", font: "400 15px / 1.3 -apple-system, BlinkMacSystemFont, Roboto, Open Sans,Helvetica Neue, sans-serif", marginBottom:"25px"}}>
+						<div id="widgetwidth" style={{display: "block", backgroundColor: "white", width: `${whatsappWidthValue}px`, height:"inherit", borderRadius: "10px", boxShadow: "rgba(0, 0, 0, 0.4) 2px 2px 6px", font: "400 15px / 1.3 -apple-system, BlinkMacSystemFont, Roboto, Open Sans,Helvetica Neue, sans-serif", marginBottom:"25px"}}>
 							<div id="whatsappChatWidgetHeaderPreview" style={{height: "100px", maxHeight: "100px", minHeight: "100px", backgroundColor: "rgb(10, 95, 84)", color: "white", borderRadius: "10px 10px 0px 0px", display: "flex", alignItems: "center"}}>
 								<div style={{marginLeft: "20px"}}>
 									<div style={{display: "flex", alignItems:"center"}}>
-										<div id="whatsappPP" ></div>
+										<div id="whatsappPP" >
+											<style jsx>
+												{
+													`
+														#whatsappPP{
+															border: 0px solid ;
+															border-radius:50%;
+															margin-right:10px; 
+															width: 50px;
+															height: 50px;
+															background-image: url("./images/assets/logo-DarkBg.png");
+															background-size: cover; 
+														}
+													`	
+												}
+											</style>
+										</div>
 										<div id="whatsappChatWidgetBrandPreview" style={{fontSize: "16px", fontWeight: "700"}}>Kombucha Kenya</div>
 									</div>
 									
@@ -87,7 +108,7 @@ export default function Contacts(){
 							elfLinktw.style.display="none"
 						}
 						console.log(document.readyState)
-					 },[document,elfLinkfb,elfLinktw])
+					 },[document,elfLinkfb,elfLinktw,screenWidth])
 					 }
 					
 				</Script>

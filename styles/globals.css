@@ -209,7 +209,7 @@ nav ul a:hover::after,nav ul a:focus::after{
     background-repeat: no-repeat;
 }
 
-.tea .text{
+.teaBG .text{
     background-color: rgba(0, 0, 0, 0.2);
     text-align: center;
     text-shadow: 2px 2px 2px #333;
@@ -218,7 +218,7 @@ nav ul a:hover::after,nav ul a:focus::after{
     width: auto;
     color:white;
 }
-.tea .text h2{
+.teaBG .text h2{
     padding: 20px;
     font-size: 2.5rem;
     font-weight: 400;
@@ -228,7 +228,7 @@ h2 span{
     font-family: 'Kaushan Script',cursive;
 }
 
-.tea .text p{
+.teaBG .text p{
     padding: 20px;
     margin: 10px;
     font-size: 1.5rem;
@@ -1133,7 +1133,6 @@ width: 400px;
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
 }
 #whatsappPP{
-    /* { border: "0px solid" , borderRadius:"50%", marginRight:"10px", width: "50px", height: "50px", backgroundImage: "url(./public/images/assets/logo-DarkBg.png)", backgroundSize: "cover"} */
     border: 0px solid ;
     border-radius:50%;
     margin-right:10px; 
@@ -1148,7 +1147,9 @@ width: 400px;
 .waicon a img{
     width: 50px;
 }
-
+#widgetwidth{
+    width: 300px;
+}
 /* media queries */
 
 @media screen and (min-width:2560px) {

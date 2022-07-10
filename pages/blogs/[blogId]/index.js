@@ -4,14 +4,14 @@ import parse from 'html-react-parser';
 import { server } from '../../../config';
 
 export const getStaticProps = async (context)=>{
-    const res = await fetch(`${server}/api/blogs/${context.params.blogId}`)
+    const res = await fetch(`http://localhost:5000/blogs/${context.params.blogId}`)
     return {
       props : {blogpost: await res.json()}
     }
 }
 
 export const getStaticPaths = async()=>{
-    const res = await fetch(`${server}/api/blogs`)
+    const res = await fetch(`http://localhost:5000/blogs`)
     const blogs = await res.json();
     const paths = blogs.map((blog)=> ({params:{blogId : `${blog.blog_id}`}}))
     return {

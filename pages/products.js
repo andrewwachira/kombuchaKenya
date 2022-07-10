@@ -7,7 +7,7 @@ import {server} from "../config/index";
 
 
 export async function getStaticProps(){
-	const res = await fetch(`${server}/api/products`,{
+	const res = await fetch(`http:localhost:5000/products`,{
 		headers: {
 		  Accept: 'application/json, text/plain, */*',
 		  'User-Agent': '*',
